@@ -45,7 +45,7 @@ export default function FleetOverview() {
             </div>
             <div>
               <h1 className="text-2xl font-extrabold tracking-tight text-neutral-800 dark:text-neutral-100">
-                EcoBin IoT
+                Jeremybin IoT.
               </h1>
               <p className="text-xs font-semibold text-primary dark:text-secondary uppercase tracking-widest mt-0.5">
                 Intelligent Fleet Telemetry

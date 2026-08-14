@@ -44,6 +44,8 @@ export default function BinDetailPage({ params }: BinDetailPageProps) {
         colorClass: "bg-[#FDFFE2] text-[#808000] border-[#E8EB9E] dark:bg-[#3A3B18] dark:text-[#EAEB9E] dark:border-[#52542B]", // lemon/olive
         lidColor: "Lemon",
         lidHex: "#DFFF4F", // lemon yellow-green
+        defaultOriginal: "/images/paper_cup.png",
+        defaultGradcam: "/images/gradcam_paper.png",
       };
     }
     if (cleanId.includes("BIN-002") || cleanId.includes("PLASTIC")) {
@@ -52,6 +54,8 @@ export default function BinDetailPage({ params }: BinDetailPageProps) {
         colorClass: "bg-status-anomaly-light text-status-anomaly border-[#DDD6FE] dark:bg-status-anomaly/10 dark:text-[#A78BFA] dark:border-[#5B21B6]", // purple
         lidColor: "Purple",
         lidHex: "#8B5CF6",
+        defaultOriginal: "/images/plastic_bottle.png",
+        defaultGradcam: "/images/gradcam_plastic.png",
       };
     }
     if (cleanId.includes("BIN-003") || cleanId.includes("DECOMPOSABLE")) {
@@ -60,6 +64,8 @@ export default function BinDetailPage({ params }: BinDetailPageProps) {
         colorClass: "bg-neutral-100 text-neutral-800 border-neutral-300 dark:bg-neutral-800/80 dark:text-neutral-200 dark:border-neutral-700", // black 1
         lidColor: "Black 1",
         lidHex: "#1F2937",
+        defaultOriginal: "/images/organic_waste.png",
+        defaultGradcam: "/images/gradcam_organic.png",
       };
     }
     if (cleanId.includes("BIN-004") || cleanId.includes("METAL")) {
@@ -68,6 +74,8 @@ export default function BinDetailPage({ params }: BinDetailPageProps) {
         colorClass: "bg-neutral-150 text-neutral-800 border-neutral-300 dark:bg-neutral-800/80 dark:text-neutral-200 dark:border-neutral-700", // black 2
         lidColor: "Black 2",
         lidHex: "#111827",
+        defaultOriginal: "/images/metal_scrap.png",
+        defaultGradcam: "/images/gradcam_metal.png",
       };
     }
     return null;
@@ -225,8 +233,8 @@ export default function BinDetailPage({ params }: BinDetailPageProps) {
           <section className="grid grid-cols-1 lg:grid-cols-2 gap-6" aria-label="Visual Explainability and AI metrics">
             {/* Grad-CAM Viewer */}
             <GradCamViewer 
-              originalUrl="/images/plastic_bottle.png" 
-              gradcamUrl={binDetail.last_classified_item?.gradcam_image_url || "/images/gradcam_bottle.png"} 
+              originalUrl={binDetail.last_classified_item?.original_image_url || comp?.defaultOriginal || "/images/plastic_bottle.png"} 
+              gradcamUrl={binDetail.last_classified_item?.gradcam_image_url || comp?.defaultGradcam || "/images/gradcam_plastic.png"} 
             />
 
             {/* Classification & Explainable AI panel */}
