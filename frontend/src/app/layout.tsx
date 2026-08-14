@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "EcoBin IoT | Intelligent Fleet Control Console",
+  title: "Jeremybin IoT | Intelligent Fleet Control Console",
   description: "High-fidelity real-time telemetry dashboard for smart waste management, incorporating LSTM fill level forecasting and neural Grad-CAM explainable AI classification overrides.",
 };
 
