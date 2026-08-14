@@ -1,0 +1,89 @@
+[2026-08-14 07:06:48,123] INFO in app (app.py:78): EcoBin IoT waste management backend initialized [testing]
+[2026-08-14 07:13:26,317] INFO in app (app.py:78): EcoBin IoT waste management backend initialized [testing]
+[2026-08-14 07:22:59,931] INFO in app (app.py:78): EcoBin IoT waste management backend initialized [testing]
+[2026-08-14 07:23:42,892] INFO in app (app.py:78): EcoBin IoT waste management backend initialized [testing]
+[2026-08-14 08:32:09,030] INFO in app (app.py:78): EcoBin IoT waste management backend initialized [development]
+[2026-08-14 08:32:09,735] INFO in _internal (_internal.py:97): [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.207.61.64:5000
+[2026-08-14 08:32:09,735] INFO in _internal (_internal.py:97): [33mPress CTRL+C to quit[0m
+[2026-08-14 08:32:09,843] INFO in _internal (_internal.py:97):  * Restarting with stat
+[2026-08-14 08:32:10,551] INFO in app (app.py:78): EcoBin IoT waste management backend initialized [development]
+[2026-08-14 08:32:10,567] WARNING in _internal (_internal.py:97):  * Debugger is active!
+[2026-08-14 08:32:10,941] INFO in _internal (_internal.py:97):  * Debugger PIN: 733-518-989
+[2026-08-14 08:35:41,133] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 08:35:41] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 08:35:51,094] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 08:35:51] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 08:36:01,105] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 08:36:01] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 08:36:05,662] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 08:36:05] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 08:36:11,113] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 08:36:11] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 08:36:21,120] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 08:36:21] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 08:38:20,119] INFO in app (app.py:78): EcoBin IoT waste management backend initialized [testing]
+[2026-08-14 08:39:58,875] INFO in app (app.py:78): EcoBin IoT waste management backend initialized [testing]
+[2026-08-14 08:40:28,267] INFO in app (app.py:78): EcoBin IoT waste management backend initialized [testing]
+[2026-08-14 08:42:28,800] INFO in app (app.py:78): EcoBin IoT waste management backend initialized [development]
+[2026-08-14 08:42:28,832] INFO in _internal (_internal.py:97): [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.207.61.64:5000
+[2026-08-14 08:42:28,832] INFO in _internal (_internal.py:97): [33mPress CTRL+C to quit[0m
+[2026-08-14 08:42:28,834] INFO in _internal (_internal.py:97):  * Restarting with stat
+[2026-08-14 08:42:29,519] INFO in app (app.py:78): EcoBin IoT waste management backend initialized [development]
+[2026-08-14 08:42:29,537] WARNING in _internal (_internal.py:97):  * Debugger is active!
+[2026-08-14 08:42:29,540] INFO in _internal (_internal.py:97):  * Debugger PIN: 733-518-989
+[2026-08-14 08:42:52,241] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 08:42:52] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 08:42:58,188] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 08:42:58] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 08:43:05,508] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 08:43:05] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 08:43:08,151] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 08:43:08] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 08:43:18,224] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 08:43:18] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 08:43:25,223] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 08:43:25] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 08:51:14,118] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 08:51:14] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 08:51:19,992] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 08:51:19] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:00:18,580] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:00:18] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:00:23,321] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:00:23] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:00:27,689] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:00:27] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:00:29,095] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:00:29] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:00:29,316] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:00:29] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:00:29,490] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:00:29] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:00:29,662] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:00:29] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:00:29,824] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:00:29] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:00:33,012] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:00:33] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:00:33,214] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:00:33] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:00:33,415] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:00:33] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:00:33,598] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:00:33] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:00:33,778] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:00:33] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:00:33,958] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:00:33] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:00:43,328] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:00:43] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:00:44,238] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:00:44] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:00:44,419] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:00:44] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:00:44,581] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:00:44] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:00:44,759] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:00:44] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:00:53,352] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:00:53] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:01:03,474] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:01:03] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:01:13,490] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:01:13] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:01:23,498] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:01:23] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:01:33,505] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:01:33] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:01:43,515] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:01:43] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:01:53,523] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:01:53] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:02:03,529] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:02:03] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:02:13,536] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:02:13] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:02:23,543] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:02:23] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:02:33,548] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:02:33] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:02:43,555] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:02:43] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:02:53,561] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:02:53] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:03:03,567] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:03:03] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:03:13,575] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:03:13] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:03:23,581] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:03:23] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:03:33,589] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:03:33] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:03:43,595] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:03:43] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:03:53,601] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:03:53] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:04:03,607] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:04:03] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:04:13,613] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:04:13] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:04:23,620] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:04:23] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:04:33,626] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:04:33] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:04:43,633] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:04:43] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:04:53,640] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:04:53] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:04:57,741] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:04:57] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:06:44,607] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:06:44] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:06:46,596] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:06:46] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-14 09:06:54,568] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:06:54] "GET /api/bins HTTP/1.1" 200 -

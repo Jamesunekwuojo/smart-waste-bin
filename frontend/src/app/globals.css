@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand/Action Colors */
+  --color-primary: #1B6E4C;
+  --color-primary-hover: #145339;
+  --color-primary-light: #D1E7DD;
+  --color-secondary: #0F9B8E;
+  --color-secondary-hover: #0B796F;
+  --color-secondary-light: #D1F2EE;
+
+  /* Neutral Scale */
+  --color-neutral-bg-light: #FAFAF7;
+  --color-neutral-bg-dark: #14181A;
+  
+  --color-card-bg-light: #FFFFFF;
+  --color-card-bg-dark: #1C2123;
+
+  --color-border-light: #E5E7EB;
+  --color-border-dark: #2C3539;
+
+  /* Status Semantics */
+  --color-status-safe: #2E9B5D;
+  --color-status-warning: #E0A93C;
+  --color-status-critical: #D14343;
+  --color-status-anomaly: #8B5CF6;
+  
+  /* Status Light Modes (for alerts/badges background) */
+  --color-status-safe-light: #EBF7EE;
+  --color-status-warning-light: #FEF7EA;
+  --color-status-critical-light: #FDF2F2;
+  --color-status-anomaly-light: #F5F3FF;
+
+  /* Typography */
+  --font-sans: var(--font-geist-sans), "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+/* Custom Base Layer */
+@layer base {
+  :root {
+    --background: #FAFAF7;
+    --foreground: #14181A;
+    --card: #FFFFFF;
+    --card-foreground: #14181A;
+    --border: #E5E7EB;
+    --ring: rgba(27, 110, 76, 0.5);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: #14181A;
+      --foreground: #FAFAF7;
+      --card: #1C2123;
+      --card-foreground: #FAFAF7;
+      --border: #2C3539;
+      --ring: rgba(15, 155, 142, 0.5);
+    }
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    transition: background-color 0.2s ease, color 0.2s ease;
+    @apply antialiased min-h-screen;
+  }
+  
+  /* Make sure tabular-nums applies cleanly across numerical states */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Smooth Transitions & Focus Rings */
+input, select, textarea, button {
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 transition-shadow duration-150;
+}
+
+/* Glassmorphism panel styling */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(229, 231, 235, 0.5);
+}
+
+@media (prefers-color-scheme: dark) {
+  .glass-panel {
+    background: rgba(28, 33, 35, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(44, 53, 57, 0.5);
+  }
+}
