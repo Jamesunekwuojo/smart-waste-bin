@@ -9,8 +9,9 @@
       "last_classified_item": {
         "predicted_class": "Paper Cup",
         "confidence_score": 0.92,
+        "original_image_url": "/images/paper_cup.png",
         "gradcam_image_url": "/images/gradcam_paper.png",
-        "timestamp": "2026-08-14T11:30:39.983Z"
+        "timestamp": "2026-08-14T11:53:54.093Z"
       },
       "compressibility_index": 0.85,
       "is_anomalous": false
@@ -24,8 +25,9 @@
       "last_classified_item": {
         "predicted_class": "Plastic Bottle",
         "confidence_score": 0.89,
+        "original_image_url": "/images/plastic_bottle.png",
         "gradcam_image_url": "/images/gradcam_plastic.png",
-        "timestamp": "2026-08-14T11:37:39.983Z"
+        "timestamp": "2026-08-14T12:00:54.093Z"
       },
       "compressibility_index": 0.74,
       "is_anomalous": false
@@ -39,8 +41,9 @@
       "last_classified_item": {
         "predicted_class": "Other / Non-recyclable",
         "confidence_score": 0.91,
+        "original_image_url": "/images/organic_waste.png",
         "gradcam_image_url": "/images/gradcam_organic.png",
-        "timestamp": "2026-08-14T11:40:39.983Z"
+        "timestamp": "2026-08-14T12:03:54.093Z"
       },
       "compressibility_index": 0.18,
       "is_anomalous": false
@@ -54,8 +57,9 @@
       "last_classified_item": {
         "predicted_class": "Metal Scrap",
         "confidence_score": 0.96,
+        "original_image_url": "/images/metal_scrap.png",
         "gradcam_image_url": "/images/gradcam_metal.png",
-        "timestamp": "2026-08-14T11:17:39.983Z"
+        "timestamp": "2026-08-14T11:40:54.093Z"
       },
       "compressibility_index": 0.05,
       "is_anomalous": false
@@ -102,488 +106,488 @@
   "history": {
     "BIN-001": [
       {
-        "timestamp": "01:42 PM",
+        "timestamp": "02:05 PM",
         "fill_percent": 0,
         "weight_kg": 0
       },
       {
-        "timestamp": "02:42 PM",
+        "timestamp": "03:05 PM",
         "fill_percent": 0,
         "weight_kg": 0
       },
       {
-        "timestamp": "03:42 PM",
+        "timestamp": "04:05 PM",
         "fill_percent": 0.4,
         "weight_kg": 0
       },
       {
-        "timestamp": "04:42 PM",
+        "timestamp": "05:05 PM",
         "fill_percent": 3.7,
         "weight_kg": 0
       },
       {
-        "timestamp": "05:42 PM",
+        "timestamp": "06:05 PM",
         "fill_percent": 7.5,
         "weight_kg": 0.3
       },
       {
-        "timestamp": "06:42 PM",
+        "timestamp": "07:05 PM",
         "fill_percent": 11.4,
         "weight_kg": 1
       },
       {
-        "timestamp": "07:42 PM",
+        "timestamp": "08:05 PM",
         "fill_percent": 14.9,
         "weight_kg": 1.5
       },
       {
-        "timestamp": "08:42 PM",
+        "timestamp": "09:05 PM",
         "fill_percent": 17.7,
         "weight_kg": 1.8
       },
       {
-        "timestamp": "09:42 PM",
+        "timestamp": "10:05 PM",
         "fill_percent": 19.4,
         "weight_kg": 1.9
       },
       {
-        "timestamp": "10:42 PM",
+        "timestamp": "11:05 PM",
         "fill_percent": 20.2,
         "weight_kg": 1.6
       },
       {
-        "timestamp": "11:42 PM",
+        "timestamp": "12:05 AM",
         "fill_percent": 20.4,
         "weight_kg": 1.2
       },
       {
-        "timestamp": "12:42 AM",
+        "timestamp": "01:05 AM",
         "fill_percent": 20.4,
         "weight_kg": 0.7
       },
       {
-        "timestamp": "01:42 AM",
+        "timestamp": "02:05 AM",
         "fill_percent": 20.7,
         "weight_kg": 0.2
       },
       {
-        "timestamp": "02:42 AM",
+        "timestamp": "03:05 AM",
         "fill_percent": 21.6,
         "weight_kg": 0
       },
       {
-        "timestamp": "03:42 AM",
+        "timestamp": "04:05 AM",
         "fill_percent": 23.5,
         "weight_kg": 0.1
       },
       {
-        "timestamp": "04:42 AM",
+        "timestamp": "05:05 AM",
         "fill_percent": 26.3,
         "weight_kg": 0.5
       },
       {
-        "timestamp": "05:42 AM",
+        "timestamp": "06:05 AM",
         "fill_percent": 29.9,
         "weight_kg": 1
       },
       {
-        "timestamp": "06:42 AM",
+        "timestamp": "07:05 AM",
         "fill_percent": 33.8,
         "weight_kg": 1.7
       },
       {
-        "timestamp": "07:42 AM",
+        "timestamp": "08:05 AM",
         "fill_percent": 37.6,
         "weight_kg": 2.4
       },
       {
-        "timestamp": "08:42 AM",
+        "timestamp": "09:05 AM",
         "fill_percent": 40.8,
         "weight_kg": 2.8
       },
       {
-        "timestamp": "09:42 AM",
+        "timestamp": "10:05 AM",
         "fill_percent": 43.1,
         "weight_kg": 3
       },
       {
-        "timestamp": "10:42 AM",
+        "timestamp": "11:05 AM",
         "fill_percent": 44.5,
         "weight_kg": 2.9
       },
       {
-        "timestamp": "11:42 AM",
+        "timestamp": "12:05 PM",
         "fill_percent": 45,
         "weight_kg": 2.6
       },
       {
-        "timestamp": "12:42 PM",
+        "timestamp": "01:05 PM",
         "fill_percent": 45,
         "weight_kg": 2.1
       }
     ],
     "BIN-002": [
       {
-        "timestamp": "01:42 PM",
+        "timestamp": "02:05 PM",
         "fill_percent": 0,
         "weight_kg": 0
       },
       {
-        "timestamp": "02:42 PM",
+        "timestamp": "03:05 PM",
         "fill_percent": 0,
         "weight_kg": 0
       },
       {
-        "timestamp": "03:42 PM",
+        "timestamp": "04:05 PM",
         "fill_percent": 3.3,
         "weight_kg": 0
       },
       {
-        "timestamp": "04:42 PM",
+        "timestamp": "05:05 PM",
         "fill_percent": 8,
         "weight_kg": 0
       },
       {
-        "timestamp": "05:42 PM",
+        "timestamp": "06:05 PM",
         "fill_percent": 13.3,
         "weight_kg": 0.8
       },
       {
-        "timestamp": "06:42 PM",
+        "timestamp": "07:05 PM",
         "fill_percent": 18.6,
         "weight_kg": 1.6
       },
       {
-        "timestamp": "07:42 PM",
+        "timestamp": "08:05 PM",
         "fill_percent": 23.5,
         "weight_kg": 2.3
       },
       {
-        "timestamp": "08:42 PM",
+        "timestamp": "09:05 PM",
         "fill_percent": 27.7,
         "weight_kg": 2.8
       },
       {
-        "timestamp": "09:42 PM",
+        "timestamp": "10:05 PM",
         "fill_percent": 30.9,
         "weight_kg": 2.9
       },
       {
-        "timestamp": "10:42 PM",
+        "timestamp": "11:05 PM",
         "fill_percent": 33.1,
         "weight_kg": 2.8
       },
       {
-        "timestamp": "11:42 PM",
+        "timestamp": "12:05 AM",
         "fill_percent": 34.8,
         "weight_kg": 2.5
       },
       {
-        "timestamp": "12:42 AM",
+        "timestamp": "01:05 AM",
         "fill_percent": 36.2,
         "weight_kg": 2.2
       },
       {
-        "timestamp": "01:42 AM",
+        "timestamp": "02:05 AM",
         "fill_percent": 37.9,
         "weight_kg": 1.9
       },
       {
-        "timestamp": "02:42 AM",
+        "timestamp": "03:05 AM",
         "fill_percent": 40.3,
         "weight_kg": 1.8
       },
       {
-        "timestamp": "03:42 AM",
+        "timestamp": "04:05 AM",
         "fill_percent": 43.6,
         "weight_kg": 2
       },
       {
-        "timestamp": "04:42 AM",
+        "timestamp": "05:05 AM",
         "fill_percent": 47.8,
         "weight_kg": 2.5
       },
       {
-        "timestamp": "05:42 AM",
+        "timestamp": "06:05 AM",
         "fill_percent": 52.9,
         "weight_kg": 3.2
       },
       {
-        "timestamp": "06:42 AM",
+        "timestamp": "07:05 AM",
         "fill_percent": 58.2,
         "weight_kg": 4
       },
       {
-        "timestamp": "07:42 AM",
+        "timestamp": "08:05 AM",
         "fill_percent": 63.4,
         "weight_kg": 4.8
       },
       {
-        "timestamp": "08:42 AM",
+        "timestamp": "09:05 AM",
         "fill_percent": 68.1,
         "weight_kg": 5.4
       },
       {
-        "timestamp": "09:42 AM",
+        "timestamp": "10:05 AM",
         "fill_percent": 71.8,
         "weight_kg": 5.7
       },
       {
-        "timestamp": "10:42 AM",
+        "timestamp": "11:05 AM",
         "fill_percent": 74.6,
         "weight_kg": 5.8
       },
       {
-        "timestamp": "11:42 AM",
+        "timestamp": "12:05 PM",
         "fill_percent": 76.5,
         "weight_kg": 5.5
       },
       {
-        "timestamp": "12:42 PM",
+        "timestamp": "01:05 PM",
         "fill_percent": 78,
         "weight_kg": 5.2
       }
     ],
     "BIN-003": [
       {
-        "timestamp": "01:42 PM",
+        "timestamp": "02:05 PM",
         "fill_percent": 0,
         "weight_kg": 0
       },
       {
-        "timestamp": "02:42 PM",
+        "timestamp": "03:05 PM",
         "fill_percent": 0,
         "weight_kg": 0
       },
       {
-        "timestamp": "03:42 PM",
+        "timestamp": "04:05 PM",
         "fill_percent": 4.5,
         "weight_kg": 1.2
       },
       {
-        "timestamp": "04:42 PM",
+        "timestamp": "05:05 PM",
         "fill_percent": 9.8,
         "weight_kg": 2.8
       },
       {
-        "timestamp": "05:42 PM",
+        "timestamp": "06:05 PM",
         "fill_percent": 15.7,
         "weight_kg": 4.5
       },
       {
-        "timestamp": "06:42 PM",
+        "timestamp": "07:05 PM",
         "fill_percent": 21.6,
         "weight_kg": 6.3
       },
       {
-        "timestamp": "07:42 PM",
+        "timestamp": "08:05 PM",
         "fill_percent": 27.2,
         "weight_kg": 7.9
       },
       {
-        "timestamp": "08:42 PM",
+        "timestamp": "09:05 PM",
         "fill_percent": 32,
         "weight_kg": 9.3
       },
       {
-        "timestamp": "09:42 PM",
+        "timestamp": "10:05 PM",
         "fill_percent": 35.8,
         "weight_kg": 10.3
       },
       {
-        "timestamp": "10:42 PM",
+        "timestamp": "11:05 PM",
         "fill_percent": 38.6,
         "weight_kg": 11.2
       },
       {
-        "timestamp": "11:42 PM",
+        "timestamp": "12:05 AM",
         "fill_percent": 40.9,
         "weight_kg": 11.8
       },
       {
-        "timestamp": "12:42 AM",
+        "timestamp": "01:05 AM",
         "fill_percent": 42.9,
         "weight_kg": 12.3
       },
       {
-        "timestamp": "01:42 AM",
+        "timestamp": "02:05 AM",
         "fill_percent": 45.2,
         "weight_kg": 13
       },
       {
-        "timestamp": "02:42 AM",
+        "timestamp": "03:05 AM",
         "fill_percent": 48.2,
         "weight_kg": 13.8
       },
       {
-        "timestamp": "03:42 AM",
+        "timestamp": "04:05 AM",
         "fill_percent": 52.1,
         "weight_kg": 15
       },
       {
-        "timestamp": "04:42 AM",
+        "timestamp": "05:05 AM",
         "fill_percent": 57,
         "weight_kg": 16.4
       },
       {
-        "timestamp": "05:42 AM",
+        "timestamp": "06:05 AM",
         "fill_percent": 62.6,
         "weight_kg": 18
       },
       {
-        "timestamp": "06:42 AM",
+        "timestamp": "07:05 AM",
         "fill_percent": 68.6,
         "weight_kg": 19.8
       },
       {
-        "timestamp": "07:42 AM",
+        "timestamp": "08:05 AM",
         "fill_percent": 74.4,
         "weight_kg": 21.5
       },
       {
-        "timestamp": "08:42 AM",
+        "timestamp": "09:05 AM",
         "fill_percent": 79.6,
         "weight_kg": 23
       },
       {
-        "timestamp": "09:42 AM",
+        "timestamp": "10:05 AM",
         "fill_percent": 84,
         "weight_kg": 24.2
       },
       {
-        "timestamp": "10:42 AM",
+        "timestamp": "11:05 AM",
         "fill_percent": 87.4,
         "weight_kg": 25.2
       },
       {
-        "timestamp": "11:42 AM",
+        "timestamp": "12:05 PM",
         "fill_percent": 89.9,
         "weight_kg": 25.9
       },
       {
-        "timestamp": "12:42 PM",
+        "timestamp": "01:05 PM",
         "fill_percent": 92,
         "weight_kg": 26.5
       }
     ],
     "BIN-004": [
       {
-        "timestamp": "01:42 PM",
+        "timestamp": "02:05 PM",
         "fill_percent": 0,
         "weight_kg": 0
       },
       {
-        "timestamp": "02:42 PM",
+        "timestamp": "03:05 PM",
         "fill_percent": 0,
         "weight_kg": 0
       },
       {
-        "timestamp": "03:42 PM",
+        "timestamp": "04:05 PM",
         "fill_percent": 0,
         "weight_kg": 0
       },
       {
-        "timestamp": "04:42 PM",
+        "timestamp": "05:05 PM",
         "fill_percent": 0,
         "weight_kg": 0.6
       },
       {
-        "timestamp": "05:42 PM",
+        "timestamp": "06:05 PM",
         "fill_percent": 2.3,
         "weight_kg": 1.6
       },
       {
-        "timestamp": "06:42 PM",
+        "timestamp": "07:05 PM",
         "fill_percent": 4.9,
         "weight_kg": 2.6
       },
       {
-        "timestamp": "07:42 PM",
+        "timestamp": "08:05 PM",
         "fill_percent": 7.1,
         "weight_kg": 3.5
       },
       {
-        "timestamp": "08:42 PM",
+        "timestamp": "09:05 PM",
         "fill_percent": 8.5,
         "weight_kg": 4.2
       },
       {
-        "timestamp": "09:42 PM",
+        "timestamp": "10:05 PM",
         "fill_percent": 9,
         "weight_kg": 4.5
       },
       {
-        "timestamp": "10:42 PM",
+        "timestamp": "11:05 PM",
         "fill_percent": 8.5,
         "weight_kg": 4.6
       },
       {
-        "timestamp": "11:42 PM",
+        "timestamp": "12:05 AM",
         "fill_percent": 7.4,
         "weight_kg": 4.5
       },
       {
-        "timestamp": "12:42 AM",
+        "timestamp": "01:05 AM",
         "fill_percent": 6.1,
         "weight_kg": 4.4
       },
       {
-        "timestamp": "01:42 AM",
+        "timestamp": "02:05 AM",
         "fill_percent": 5,
         "weight_kg": 4.3
       },
       {
-        "timestamp": "02:42 AM",
+        "timestamp": "03:05 AM",
         "fill_percent": 4.6,
         "weight_kg": 4.4
       },
       {
-        "timestamp": "03:42 AM",
+        "timestamp": "04:05 AM",
         "fill_percent": 5.2,
         "weight_kg": 4.8
       },
       {
-        "timestamp": "04:42 AM",
+        "timestamp": "05:05 AM",
         "fill_percent": 6.8,
         "weight_kg": 5.5
       },
       {
-        "timestamp": "05:42 AM",
+        "timestamp": "06:05 AM",
         "fill_percent": 9,
         "weight_kg": 6.4
       },
       {
-        "timestamp": "06:42 AM",
+        "timestamp": "07:05 AM",
         "fill_percent": 11.7,
         "weight_kg": 7.4
       },
       {
-        "timestamp": "07:42 AM",
+        "timestamp": "08:05 AM",
         "fill_percent": 14.1,
         "weight_kg": 8.4
       },
       {
-        "timestamp": "08:42 AM",
+        "timestamp": "09:05 AM",
         "fill_percent": 16,
         "weight_kg": 9.2
       },
       {
-        "timestamp": "09:42 AM",
+        "timestamp": "10:05 AM",
         "fill_percent": 17,
         "weight_kg": 9.7
       },
       {
-        "timestamp": "10:42 AM",
+        "timestamp": "11:05 AM",
         "fill_percent": 17.1,
         "weight_kg": 10
       },
       {
-        "timestamp": "11:42 AM",
+        "timestamp": "12:05 PM",
         "fill_percent": 16.3,
         "weight_kg": 9.9
       },
       {
-        "timestamp": "12:42 PM",
+        "timestamp": "01:05 PM",
         "fill_percent": 15,
         "weight_kg": 9.8
       }

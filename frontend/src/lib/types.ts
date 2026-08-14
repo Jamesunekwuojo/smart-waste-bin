@@ -2,6 +2,7 @@ export interface LastClassifiedItem {
   predicted_class: string | null;
   confidence_score: number | null; // between 0 and 1
   gradcam_image_url: string | null;
+  original_image_url?: string | null;
   timestamp: string; // ISO date string
 }
 

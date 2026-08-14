@@ -25,6 +25,7 @@ const getInitialDbState = (): DbSchema => {
       last_classified_item: {
         predicted_class: "Paper Cup",
         confidence_score: 0.92,
+        original_image_url: "/images/paper_cup.png",
         gradcam_image_url: "/images/gradcam_paper.png",
         timestamp: new Date(now.getTime() - 1000 * 60 * 12).toISOString(), // 12m ago
       },
@@ -40,6 +41,7 @@ const getInitialDbState = (): DbSchema => {
       last_classified_item: {
         predicted_class: "Plastic Bottle",
         confidence_score: 0.89,
+        original_image_url: "/images/plastic_bottle.png",
         gradcam_image_url: "/images/gradcam_plastic.png",
         timestamp: new Date(now.getTime() - 1000 * 60 * 5).toISOString(), // 5m ago
       },
@@ -55,6 +57,7 @@ const getInitialDbState = (): DbSchema => {
       last_classified_item: {
         predicted_class: "Other / Non-recyclable",
         confidence_score: 0.91,
+        original_image_url: "/images/organic_waste.png",
         gradcam_image_url: "/images/gradcam_organic.png",
         timestamp: new Date(now.getTime() - 1000 * 60 * 2).toISOString(), // 2m ago
       },
@@ -70,6 +73,7 @@ const getInitialDbState = (): DbSchema => {
       last_classified_item: {
         predicted_class: "Metal Scrap",
         confidence_score: 0.96,
+        original_image_url: "/images/metal_scrap.png",
         gradcam_image_url: "/images/gradcam_metal.png",
         timestamp: new Date(now.getTime() - 1000 * 60 * 25).toISOString(), // 25m ago
       },
@@ -347,6 +351,10 @@ export const dbAddWasteEvent = (
     bin.last_classified_item = {
       predicted_class: inference.predictedClass,
       confidence_score: inference.confidence,
+      original_image_url: binId === "BIN-001" ? "/images/paper_cup.png"
+                        : binId === "BIN-002" ? "/images/plastic_bottle.png"
+                        : binId === "BIN-003" ? "/images/organic_waste.png"
+                        : "/images/metal_scrap.png",
       gradcam_image_url: binId === "BIN-001" ? "/images/gradcam_paper.png"
                        : binId === "BIN-002" ? "/images/gradcam_plastic.png"
                        : binId === "BIN-003" ? "/images/gradcam_organic.png"

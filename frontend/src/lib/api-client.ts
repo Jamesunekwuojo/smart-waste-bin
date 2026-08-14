@@ -26,10 +26,10 @@ class ApiClient {
     } catch (primaryError) {
       console.warn(`Failed to fetch from primary Flask API at ${primaryUrl}. Trying Next.js fallback API...`, primaryError);
       
-      // Fallback to Next.js API Route handler
-      const fallbackUrl = typeof window !== "undefined"
-        ? `${window.location.origin}${path}`
-        : `http://localhost:3000${path}`;
+      // Fallback to Next.js API Route handler (with optional NEXT_PUBLIC_DEMO_API_URL override)
+      const fallbackBase = process.env.NEXT_PUBLIC_DEMO_API_URL 
+        || (typeof window !== "undefined" ? window.location.origin : "http://localhost:3000");
+      const fallbackUrl = `${fallbackBase}${path}`;
         
       try {
         const response = await fetch(fallbackUrl, {
@@ -159,7 +159,8 @@ class ApiClient {
           
           if (!res.ok) {
             // Try Next.js fallback API
-            const fallbackUrl = `${window.location.origin}/api/feedback`;
+            const fallbackBase = process.env.NEXT_PUBLIC_DEMO_API_URL || window.location.origin;
+            const fallbackUrl = `${fallbackBase}/api/feedback`;
             res = await fetch(fallbackUrl, {
               method: "POST",
               headers: {
