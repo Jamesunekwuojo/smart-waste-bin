@@ -87,3 +87,13 @@
 [2026-08-14 09:06:44,607] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:06:44] "GET /api/bins HTTP/1.1" 200 -
 [2026-08-14 09:06:46,596] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:06:46] "GET /api/bins HTTP/1.1" 200 -
 [2026-08-14 09:06:54,568] INFO in _internal (_internal.py:97): 127.0.0.1 - - [14/Aug/2026 09:06:54] "GET /api/bins HTTP/1.1" 200 -
+[2026-08-21 08:08:39,747] INFO in app (app.py:78): EcoBin IoT waste management backend initialized [development]
+[2026-08-21 08:08:40,233] INFO in _internal (_internal.py:97): [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.137.221:5000
+[2026-08-21 08:08:40,233] INFO in _internal (_internal.py:97): [33mPress CTRL+C to quit[0m
+[2026-08-21 08:08:40,253] INFO in _internal (_internal.py:97):  * Restarting with stat
+[2026-08-21 08:08:40,927] INFO in app (app.py:78): EcoBin IoT waste management backend initialized [development]
+[2026-08-21 08:08:40,944] WARNING in _internal (_internal.py:97):  * Debugger is active!
+[2026-08-21 08:08:41,091] INFO in _internal (_internal.py:97):  * Debugger PIN: 142-461-894
