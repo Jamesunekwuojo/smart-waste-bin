@@ -160,7 +160,7 @@ The hardware setup utilizes point-to-point serial communication between the ESP3
 
 ## 5. Serial Framing Protocol
 
-All communication over the UART lines (9600 Baud) uses a packet structure containing an XOR Checksum to prevent noise corruption:
+All communication over the UART lines (2400 Baud) uses a packet structure containing an XOR Checksum to prevent noise corruption:
 
 ### Telemetry Packet (PIC $\rightarrow$ ESP32)
 Sent periodically by the PIC16F876A for each bin:

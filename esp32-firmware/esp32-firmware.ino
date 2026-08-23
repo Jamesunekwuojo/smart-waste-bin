@@ -73,9 +73,9 @@ void setup() {
   Serial.begin(115200);
   Serial.println("ESP32 Waste System Initializing...");
 
-  // Initialize UART2 for PIC communication (9600 Baud, 8-N-1 formatting)
-  Serial2.begin(9600, SERIAL_8N1, PIC_RX_PIN, PIC_TX_PIN);
-  Serial.println("UART2 (PIC Communication) Initialized at 9600 Baud.");
+  // Initialize UART2 for PIC communication (2400 Baud, 8-N-1 formatting)
+  Serial2.begin(2400, SERIAL_8N1, PIC_RX_PIN, PIC_TX_PIN);
+  Serial.println("UART2 (PIC Communication) Initialized at 2400 Baud.");
 
   // Initialize Active-LOW push button
   pinMode(BUTTON_PIN, INPUT_PULLUP);
