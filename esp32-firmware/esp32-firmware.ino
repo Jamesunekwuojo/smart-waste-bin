@@ -1,28 +1,6 @@
 /*
  * esp32-firmware.ino
- * ESP32 Central Controller Firmware (Arduino Core)
- *
- * DESCRIPTION:
- * This program acts as the central controller for the smart waste bin system.
- * It manages:
- *   1. Wi-Fi connection and reconnect state machine.
- *   2. Non-blocking UART serial communication to receive 4-bin telemetry from the PIC16F876A.
- *   3. PC-side diagnostic logging (over Serial0 @ 115200 baud).
- *   4. A parallel (4-bit) character LCD to show bin capacities and server predictions.
- *   5. A physical trigger button to initiate waste processing.
- *   6. Sending HTTP POST JSON payloads to the Flask API backend.
- *   7. Sending UART actuation commands to the PIC to open specific bin lids based on API results.
- *
- * PIN MAPPING NOTES (aligned to project schematic):
- *   - LCD is wired in parallel 4-bit mode (RS, E, D4-D7) with a contrast pot (RV2),
- *     NOT an I2C backpack module. LiquidCrystal_I2C has been replaced with LiquidCrystal.
- *   - PIC runs its logic at 5V; ESP32 runs at 3.3V. The PIC->ESP32 UART line
- *     (PIC TX -> ESP32 RX2) passes through a 1k/2k resistor divider on the
- *     board to safely step 5V down to ~3.3V. ESP32->PIC (TX2 -> PIC RX) needs
- *     no divider, since 3.3V reliably registers as HIGH on the PIC's 5V input.
- *   - Button is wired with an external 10k pull-down to GND (active-HIGH when
- *     pressed), so the internal INPUT_PULLUP + active-LOW logic used in the
- *     original version has been corrected to match.
+ * ESP32 Central Controller Firmware (Arduino Core) - UPDATED SERIAL LAYER
  */
 
 #include <WiFi.h>
@@ -31,10 +9,8 @@
 #include <LiquidCrystal.h>
 
 // =========================================================================
-// 1. HARDWARE PIN CONFIGURATIONS (matched to project schematic)
+// 1. HARDWARE PIN CONFIGURATIONS
 // =========================================================================
-
-// --- LCD (parallel 4-bit mode) ---
 #define LCD_RS          33
 #define LCD_E           25
 #define LCD_D4          13
@@ -42,30 +18,20 @@
 #define LCD_D6          22
 #define LCD_D7          21
 
-// --- UART to PIC (Serial2) ---
-#define PIC_RX_PIN      15   // ESP32 RX2 <- PIC TX (RC6), via 1k/2k divider on board
-#define PIC_TX_PIN      12   // ESP32 TX2 -> PIC RX (RC7), direct, no divider needed
-
-// --- Trigger Button (external 10k pull-down to GND -> active-HIGH when pressed) ---
+#define PIC_RX_PIN      15   
+#define PIC_TX_PIN      12   
 #define BUTTON_PIN      2
-
-// NOTE: Camera pins (D0-D7, HREF, VSYNC, PCLK, XCLK, SIOD, SIOC) are handled
-// separately in the camera driver init and are not redefined here to avoid
-// duplicate/conflicting pin definitions across files.
 
 // =========================================================================
 // 2. NETWORK & SERVER PARAMETERS
 // =========================================================================
 const char* ssid = "secretPlace";
 const char* password = "godswill90";
-
-// Flask server backend URL
-const char* serverUrl = "http://192.168.1.100:5000/api/waste"; // Replace with your Flask server IP
+const char* serverUrl = "http://192.168.1"; 
 
 // =========================================================================
 // 3. SYSTEM STATE & TELEMETRY REGISTERS
 // =========================================================================
-// Struct matching the PIC status telemetry packet
 struct BinTelemetry {
   uint16_t distance_mm;
   uint16_t weight_g;
@@ -75,50 +41,36 @@ struct BinTelemetry {
   uint32_t last_update;
 };
 
-BinTelemetry bins[4]; // Telemetry cache for the 4 bins
+BinTelemetry bins[4]; 
 uint8_t current_display_bin = 0;
 uint32_t last_lcd_refresh = 0;
 
-// UART Parser State Machine Constants
 #define PACKET_SOF       0xAA
 #define CMD_OPEN_LID     0x01
 
-// Setup parallel LCD (16 columns x 2 rows)
 LiquidCrystal lcd(LCD_RS, LCD_E, LCD_D4, LCD_D5, LCD_D6, LCD_D7);
 
 // =========================================================================
 // 4. HARDWARE SETUP
 // =========================================================================
 void setup() {
-  // Initialize Serial Monitor (USB debugging to PC)
   Serial.begin(115200);
   Serial.println("ESP32 Waste System Initializing...");
 
-  // Initialize UART2 for PIC communication (2400 Baud, 8-N-1 formatting)
+  // Initialize UART2 for PIC communication at 2400 Baud
   Serial2.begin(2400, SERIAL_8N1, PIC_RX_PIN, PIC_TX_PIN);
   Serial.println("UART2 (PIC Communication) Initialized at 2400 Baud.");
 
-  // Initialize trigger button.
-  // Board has an external 10k pull-down to GND, so the pin idles LOW and
-  // reads HIGH when pressed. No internal pull-up/pull-down needed.
   pinMode(BUTTON_PIN, INPUT);
 
-  // Initialize parallel LCD Display
   lcd.begin(16, 2);
   lcd.setCursor(0, 0);
   lcd.print("System Booting...");
 
-  // Initialize Telemetry Cache
   for (int i = 0; i < 4; i++) {
-    bins[i].distance_mm = 0;
-    bins[i].weight_g = 0;
-    bins[i].status_flags = 0;
-    bins[i].lid_state = 0;
     bins[i].is_active = false;
-    bins[i].last_update = 0;
   }
 
-  // Connect to WiFi
   connectWiFi();
 }
 
@@ -126,34 +78,30 @@ void setup() {
 // 5. CORE SYSTEM LOOP
 // =========================================================================
 void loop() {
-  // 1. Maintain WiFi connection
   if (WiFi.status() != WL_CONNECTED) {
     connectWiFi();
   }
 
-  // 2. Poll and parse UART data from the PIC microcontroller
   pollPicUart();
 
-  // 3. Scan the trigger button (active-HIGH via external pull-down, check for press transition)
   if (digitalRead(BUTTON_PIN) == HIGH) {
-    delay(50); // Debounce delay
+    delay(50); 
     if (digitalRead(BUTTON_PIN) == HIGH) {
       Serial.println("Action Button Pressed! Triggering waste event...");
       triggerClassificationEvent();
-      while (digitalRead(BUTTON_PIN) == HIGH); // Wait for release
+      while (digitalRead(BUTTON_PIN) == HIGH); 
     }
   }
 
-  // 4. Periodically cycle the LCD display between the 4 Bins
   if (millis() - last_lcd_refresh > 3000) {
     last_lcd_refresh = millis();
     updateLcdDisplay();
-    current_display_bin = (current_display_bin + 1) % 4; // Cycle 0 -> 1 -> 2 -> 3
+    current_display_bin = (current_display_bin + 1) % 4; 
   }
 }
 
 // =========================================================================
-// 6. UART PARSER STATE MACHINE
+// 6. FIXED UART PARSER STATE MACHINE
 // =========================================================================
 void pollPicUart() {
   static uint8_t rx_buffer[16];
@@ -170,27 +118,29 @@ void pollPicUart() {
     }
     // State 1: Read the packet length byte
     else if (rx_index == 1) {
-      if (c > 0 && c < sizeof(rx_buffer)) {
+      if (c > 2 && c < sizeof(rx_buffer)) {
         rx_buffer[rx_index++] = c;
       } else {
-        rx_index = 0; // Out-of-bounds size, discard packet
+        rx_index = 0; 
       }
     }
     // State 2: Accumulate payload and checksum
     else {
       rx_buffer[rx_index++] = c;
-      uint8_t expected_len = rx_buffer[1] + 1; // payload size + checksum byte
+      
+      // FIXED: Total length sent by PIC is exactly equal to the length byte value (9)
+      uint8_t total_packet_size = rx_buffer[1]; 
 
-      if (rx_index >= expected_len) {
-        // Full packet received. Perform checksum validation.
-        uint8_t received_chk = rx_buffer[expected_len - 1];
+      if (rx_index >= total_packet_size) {
+        // The checksum byte sits at the absolute final slot of the message block
+        uint8_t received_chk = rx_buffer[total_packet_size - 1];
         uint8_t computed_chk = 0;
-        for (int i = 0; i < expected_len - 1; i++) {
+        
+        for (int i = 0; i < total_packet_size - 1; i++) {
           computed_chk ^= rx_buffer[i];
         }
 
         if (received_chk == computed_chk) {
-          // Packet parsing syntax: [SOF] [Len] [BinID] [DistMSB] [DistLSB] [WeightMSB] [WeightLSB] [Flags] [LidState] [Checksum]
           uint8_t binId = rx_buffer[2];
           if (binId < 4) {
             bins[binId].distance_mm = (rx_buffer[3] << 8) | rx_buffer[4];
@@ -201,9 +151,12 @@ void pollPicUart() {
             bins[binId].last_update = millis();
           }
         } else {
-          Serial.println("UART Error: Checksum mismatch from PIC.");
+          Serial.print("UART Error: Checksum mismatch from PIC. Expected: ");
+          Serial.print(computed_chk, HEX);
+          Serial.print(" Got: ");
+          Serial.println(received_chk, HEX);
         }
-        rx_index = 0; // Reset parser state
+        rx_index = 0; 
       }
     }
   }
@@ -213,12 +166,9 @@ void pollPicUart() {
 // 7. HTTP API TELEMETRY POST PIPELINE
 // =========================================================================
 void triggerClassificationEvent() {
-  // Find which bin has active telemetry. In a production physical build,
-  // this is determined by proximity, IR trigger, or a selected active bin.
-  // For this prototype, we choose the first bin that is reporting active connection.
   int targetBin = -1;
   for (int i = 0; i < 4; i++) {
-    if (bins[i].is_active && (millis() - bins[i].last_update < 2000)) {
+    if (bins[i].is_active && (millis() - bins[i].last_update < 4000)) {
       targetBin = i;
       break;
     }
@@ -238,18 +188,13 @@ void triggerClassificationEvent() {
   lcd.clear();
   lcd.setCursor(0, 0);
   lcd.print("Classifying...");
-  lcd.setCursor(0, 1);
-  lcd.print("Sending to API");
 
-  // Create JSON payload using ArduinoJson library
   StaticJsonDocument<256> doc;
-  String binLabel = "bin-" + String(targetBin + 1); // e.g. "bin-1", "bin-2"
+  String binLabel = "bin-" + String(targetBin + 1);
 
-  // Convert mm to cm and grams to kg to align with backend schema
   float height_cm = bins[targetBin].distance_mm / 10.0;
   float weight_kg = bins[targetBin].weight_g / 1000.0;
 
-  // Calculate fill percentage (based on empty height of 1500mm / 150cm)
   float empty_height_cm = 150.0;
   float fill_percent = ((empty_height_cm - height_cm) / empty_height_cm) * 100.0;
   if (fill_percent < 0.0) fill_percent = 0.0;
@@ -265,10 +210,7 @@ void triggerClassificationEvent() {
 
   String jsonString;
   serializeJson(doc, jsonString);
-  Serial.print("POST Payload: ");
-  Serial.println(jsonString);
 
-  // Send HTTP POST Request
   HTTPClient http;
   http.begin(serverUrl);
   http.addHeader("Content-Type", "application/json");
@@ -277,10 +219,6 @@ void triggerClassificationEvent() {
 
   if (httpResponseCode == 200 || httpResponseCode == 201) {
     String responseString = http.getString();
-    Serial.print("Response: ");
-    Serial.println(responseString);
-
-    // Parse classification result from server response
     StaticJsonDocument<512> responseDoc;
     DeserializationError error = deserializeJson(responseDoc, responseString);
 
@@ -294,35 +232,20 @@ void triggerClassificationEvent() {
       lcd.setCursor(0, 1);
       lcd.print("Conf: " + String((int)(confidence * 100)) + "%");
 
-      Serial.print("Server predicted class: ");
-      Serial.println(predictedClass);
-
-      // Send command to PIC to open the lid for this bin
       sendActuationCommand(targetBin);
-    } else {
-      Serial.println("JSON Parsing Error.");
-      lcd.clear();
-      lcd.print("JSON Error");
     }
   } else {
-    Serial.print("HTTP POST Failed. Response Code: ");
-    Serial.println(httpResponseCode);
     lcd.clear();
-    lcd.setCursor(0, 0);
     lcd.print("API Failed");
-    lcd.setCursor(0, 1);
-    lcd.print("Code: " + String(httpResponseCode));
   }
-
   http.end();
-  delay(3000); // Display the server prediction on LCD for 3 seconds
+  delay(3000); 
 }
 
-// Sends an actuation command packet over UART to open a specific bin lid
 void sendActuationCommand(uint8_t binIndex) {
-  uint8_t cmd_packet[4];
+  uint8_t cmd_packet[5];
   cmd_packet[0] = PACKET_SOF;
-  cmd_packet[1] = 0x03; // Payload length: 3 bytes
+  cmd_packet[1] = 0x05; // Total frame length: 5 bytes
   cmd_packet[2] = CMD_OPEN_LID;
   cmd_packet[3] = binIndex;
 
@@ -330,10 +253,9 @@ void sendActuationCommand(uint8_t binIndex) {
   for (int i = 0; i < 4; i++) {
     chk ^= cmd_packet[i];
   }
+  cmd_packet[4] = chk;
 
-  // Write packet to Serial2 (to PIC RX)
-  Serial2.write(cmd_packet, 4);
-  Serial2.write(chk);
+  Serial2.write(cmd_packet, 5);
   Serial.print("Sent UART command to open Lid for Bin ");
   Serial.println(binIndex + 1);
 }
@@ -345,29 +267,20 @@ void connectWiFi() {
   lcd.clear();
   lcd.setCursor(0, 0);
   lcd.print("WiFi Connecting..");
-  lcd.setCursor(0, 1);
-  lcd.print(ssid);
-
   WiFi.begin(ssid, password);
   int retry = 0;
   while (WiFi.status() != WL_CONNECTED && retry < 20) {
     delay(500);
-    Serial.print(".");
     retry++;
   }
 
+  lcd.clear();
   if (WiFi.status() == WL_CONNECTED) {
-    Serial.println("\nWiFi Connected successfully!");
-    lcd.clear();
     lcd.print("WiFi Connected!");
-    lcd.setCursor(0, 1);
-    lcd.print(WiFi.localIP());
   } else {
-    Serial.println("\nWiFi Connection Failed.");
-    lcd.clear();
     lcd.print("WiFi Offline");
   }
-  delay(1500);
+  delay(1000);
 }
 
 void updateLcdDisplay() {
@@ -375,7 +288,7 @@ void updateLcdDisplay() {
   lcd.setCursor(0, 0);
   lcd.print("Bin-" + String(current_display_bin + 1) + " status:");
 
-  if (!bins[current_display_bin].is_active || (millis() - bins[current_display_bin].last_update > 3000)) {
+  if (!bins[current_display_bin].is_active || (millis() - bins[current_display_bin].last_update > 4000)) {
     lcd.setCursor(0, 1);
     lcd.print("Node Offline");
     return;
@@ -385,7 +298,6 @@ void updateLcdDisplay() {
     lcd.setCursor(0, 1);
     lcd.print("SENSOR FAULT");
   } else {
-    // Convert mm height to fill percentage (assuming 1500mm depth)
     float height_cm = bins[current_display_bin].distance_mm / 10.0;
     float empty_height_cm = 150.0;
     float fill_percent = ((empty_height_cm - height_cm) / empty_height_cm) * 100.0;
